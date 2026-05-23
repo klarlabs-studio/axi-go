@@ -6,8 +6,9 @@ name: Fuzz (nightly)
 
 on:
   schedule:
-    # 02:17 UTC daily — offset to avoid the global cron rush.
-    - cron: "17 2 * * *"
+    # Weekly Sun 02:17 UTC. Daily cron retired — seed corpus already runs
+    # on every PR; weekly extended fuzz is sufficient + dispatch on demand.
+    - cron: "17 2 * * 0"
   workflow_dispatch:
 
 permissions:

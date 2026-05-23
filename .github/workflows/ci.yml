@@ -3,11 +3,23 @@ name: CI
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'LICENSE'
   pull_request:
     branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'LICENSE'
 
 permissions:
   contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   fmt:
@@ -170,6 +182,7 @@ jobs:
           name: nox-findings
           path: findings.json
           if-no-files-found: ignore
+          retention-days: 7
       - name: Annotate PR with findings
         if: steps.scan.outcome == 'failure' && github.event_name == 'pull_request'
         env:
