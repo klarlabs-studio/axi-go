@@ -79,7 +79,7 @@ jobs:
         with:
           name: sbom
       - name: Install cosign
-        uses: sigstore/cosign-installer@d7543c93d881b35a8faa02e8e3605f69b7a1ce62 # v3
+        uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v3
       - name: Sign SBOM (keyless)
         env:
           COSIGN_EXPERIMENTAL: "1"
