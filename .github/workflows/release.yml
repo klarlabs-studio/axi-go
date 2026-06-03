@@ -80,18 +80,12 @@ jobs:
           name: sbom
       - name: Install cosign
         uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6 # v4.1.2
-        with:
-          # cosign 4.x broke keyless sign-blob (--output-signature /
-          # --output-certificate → "create bundle file: open : no such
-          # file"). Pin CLI to 2.x until v4 flag migration.
-          cosign-release: 'v2.6.3'
       - name: Sign SBOM (keyless)
         env:
           COSIGN_EXPERIMENTAL: "1"
         run: |
           cosign sign-blob --yes \
-            --output-signature axi-go-sbom.cdx.json.sig \
-            --output-certificate axi-go-sbom.cdx.json.crt \
+            --bundle axi-go-sbom.cdx.json.sigstore.json \
             axi-go-sbom.cdx.json
       - name: Extract CHANGELOG section for this tag
         id: changelog
@@ -130,5 +124,4 @@ jobs:
             --title "${GITHUB_REF_NAME}" \
             --notes "$BODY" \
             axi-go-sbom.cdx.json \
-            axi-go-sbom.cdx.json.sig \
-            axi-go-sbom.cdx.json.crt
+            axi-go-sbom.cdx.json.sigstore.json
