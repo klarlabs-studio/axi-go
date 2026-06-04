@@ -40,7 +40,7 @@ type Kernel struct {
 	actionRepo    *inmemory.ActionDefinitionRepository
 	capRepo       *inmemory.CapabilityDefinitionRepository
 	pluginRepo    *inmemory.PluginContributionRepository
-	sessionRepo   *inmemory.ExecutionSessionRepository
+	sessionRepo   domain.SessionRepository
 	actionExecReg *inmemory.ActionExecutorRegistry
 	capExecReg    *inmemory.CapabilityExecutorRegistry
 	validator     domain.ContractValidator
@@ -184,6 +184,19 @@ func (k *Kernel) WithTimeout(d time.Duration) *Kernel {
 func (k *Kernel) WithIDGenerator(gen application.IDGenerator) *Kernel {
 	k.idGen = gen
 	k.execute.IDGen = gen
+	return k
+}
+
+// WithSessionRepository overrides the default in-memory session store with a
+// custom SessionRepository — for example a PostgreSQL-backed repository so that
+// write-external sessions paused at AwaitingApproval survive process restarts
+// (the default in-memory store does not). Implementations serialize sessions
+// via ExecutionSession.ToSnapshot and reload them with SessionFromSnapshot.
+//
+// Must be called before the first Execute. Returns the kernel for chaining.
+func (k *Kernel) WithSessionRepository(repo domain.SessionRepository) *Kernel {
+	k.sessionRepo = repo
+	k.execute.SessionRepo = repo
 	return k
 }
 
