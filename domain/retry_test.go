@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi/domain"
 )
 
 // flakyExecutor fails the first n calls, then succeeds.

@@ -13,7 +13,7 @@ Thanks for considering a contribution. axi-go aims to stay small, principled, an
 ## Development setup
 
 ```bash
-git clone https://github.com/felixgeelhaar/axi-go.git
+git clone https://github.com/klarlabs-studio/axi-go.git
 cd axi-go
 make install-hooks   # installs git pre-commit hook
 make check           # fmt + lint + test + security

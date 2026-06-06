@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi/domain"
 )
 
 func TestDomainEvent_EventTypes(t *testing.T) {

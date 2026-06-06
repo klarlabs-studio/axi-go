@@ -1,7 +1,7 @@
 // Package application contains the use cases for axi-go.
 package application
 
-import "github.com/felixgeelhaar/axi-go/domain"
+import "go.klarlabs.de/axi/domain"
 
 // RegisterPluginContributionUseCase handles plugin registration.
 type RegisterPluginContributionUseCase struct {

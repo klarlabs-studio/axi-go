@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi/domain"
 )
 
 // Compile-time interface check.

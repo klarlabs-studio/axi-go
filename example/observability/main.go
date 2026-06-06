@@ -34,8 +34,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
 )
 
 // --- Pattern 1: DomainEventPublisher as strict-DDD subscriber ---

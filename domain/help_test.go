@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi/domain"
 )
 
 func TestActionDefinition_Help(t *testing.T) {

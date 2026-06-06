@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go"
+	"go.klarlabs.de/axi"
 )
 
 func TestTruncate_ShortStringUnchanged(t *testing.T) {

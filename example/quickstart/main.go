@@ -10,8 +10,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
 )
 
 // A single action: send-email. Effect is write-external, so axi-go

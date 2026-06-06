@@ -15,7 +15,7 @@ axi-go is in active development. Security fixes are provided for the latest rele
 
 Instead, report privately via one of these channels:
 
-1. **GitHub Security Advisories** (preferred): Use the [Report a vulnerability](https://github.com/felixgeelhaar/axi-go/security/advisories/new) button on the Security tab
+1. **GitHub Security Advisories** (preferred): Use the [Report a vulnerability](https://github.com/klarlabs-studio/axi-go/security/advisories/new) button on the Security tab
 2. **Email**: Include as much detail as possible — minimal reproduction, affected versions, impact assessment
 
 ### What to include

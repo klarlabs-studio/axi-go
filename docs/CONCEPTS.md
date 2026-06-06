@@ -162,7 +162,7 @@ no tracing library integration — and it's paid for three reasons:
    kernel whose job is safety cannot afford a bad transitive dependency.
 2. **Audit.** Zero deps means an adopter's legal and security teams can
    review the entire dependency tree in an hour.
-3. **Adoption.** `go get github.com/felixgeelhaar/axi-go` with no
+3. **Adoption.** `go get go.klarlabs.de/axi` with no
    follow-up is a different adoption experience from `go get ...` followed
    by vetting 12 transitive packages.
 
@@ -228,7 +228,7 @@ transient failure," read the README next.
 - **[axi.md](https://axi.md/)** — the 10 design principles for agent-tool
   interfaces. axi-go addresses the eight that apply to a library
   (principles 7 and 8 are CLI-specific).
-- **[Issue #8](https://github.com/felixgeelhaar/axi-go/issues/8)** — the
+- **[Issue #8](https://github.com/klarlabs-studio/axi-go/issues/8)** — the
   closed issue that tracked axi.md alignment.
 - **[CHANGELOG.md](../CHANGELOG.md)** — what has shipped, grouped by
   theme.

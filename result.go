@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"unicode/utf8"
 
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi/domain"
 )
 
 // ListResult wraps a collection with its total count, aligning with axi.md

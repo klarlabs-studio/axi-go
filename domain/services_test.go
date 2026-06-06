@@ -7,7 +7,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi/domain"
 )
 
 // --- In-test fakes (domain_test can't import inmemory without a cycle via application) ---

@@ -6,8 +6,8 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go/domain"
-	"github.com/felixgeelhaar/axi-go/jsonstore"
+	"go.klarlabs.de/axi/domain"
+	"go.klarlabs.de/axi/jsonstore"
 )
 
 func TestActionStore_SaveAndGet(t *testing.T) {

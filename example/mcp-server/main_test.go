@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go"
+	"go.klarlabs.de/axi"
 )
 
 // TestServe_InitializeListCall drives the full dispatch chain through stdio

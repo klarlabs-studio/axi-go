@@ -3,7 +3,7 @@ package toon_test
 import (
 	"fmt"
 
-	"github.com/felixgeelhaar/axi-go/toon"
+	"go.klarlabs.de/axi/toon"
 )
 
 func ExampleEncode() {

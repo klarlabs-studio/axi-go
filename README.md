@@ -2,10 +2,10 @@
 
 **A domain-driven execution kernel for AI agent tools — a Go library you embed, not a service you run.**
 
-[![CI](https://github.com/felixgeelhaar/axi-go/actions/workflows/ci.yml/badge.svg)](https://github.com/felixgeelhaar/axi-go/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/github.com/felixgeelhaar/axi-go)](https://goreportcard.com/report/github.com/felixgeelhaar/axi-go)
+[![CI](https://github.com/klarlabs-studio/axi-go/actions/workflows/ci.yml/badge.svg)](https://github.com/klarlabs-studio/axi-go/actions/workflows/ci.yml)
+[![Go Report Card](https://goreportcard.com/badge/go.klarlabs.de/axi)](https://goreportcard.com/report/go.klarlabs.de/axi)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Go Reference](https://pkg.go.dev/badge/github.com/felixgeelhaar/axi-go.svg)](https://pkg.go.dev/github.com/felixgeelhaar/axi-go)
+[![Go Reference](https://pkg.go.dev/badge/go.klarlabs.de/axi.svg)](https://pkg.go.dev/go.klarlabs.de/axi)
 
 **Zero external dependencies.** Standard library only.
 
@@ -48,7 +48,7 @@ Composing these, not reinventing them in every agent service, is the whole pitch
 ## Install
 
 ```bash
-go get github.com/felixgeelhaar/axi-go
+go get go.klarlabs.de/axi
 ```
 
 ## 60-Second Tour
@@ -62,8 +62,8 @@ import (
     "context"
     "fmt"
 
-    "github.com/felixgeelhaar/axi-go"
-    "github.com/felixgeelhaar/axi-go/domain"
+    "go.klarlabs.de/axi"
+    "go.klarlabs.de/axi/domain"
 )
 
 type emailPlugin struct{}
@@ -202,7 +202,7 @@ result, _ := kernel.Reject(ctx, sessionID, decision)
 | `ListActionSummaries`, `ListCapabilitySummaries` | Minimal-schema projections (axi.md #2) |
 | `GetAction`, `Help` | Introspect one action or any name (axi.md #10) |
 
-See the godoc on [pkg.go.dev](https://pkg.go.dev/github.com/felixgeelhaar/axi-go)
+See the godoc on [pkg.go.dev](https://pkg.go.dev/go.klarlabs.de/axi)
 for full signatures and runnable examples.
 
 ## Safety & Control
@@ -246,7 +246,7 @@ brace-free, quote-free, and ~40% shorter than equivalent JSON on uniform
 arrays:
 
 ```go
-import "github.com/felixgeelhaar/axi-go/toon"
+import "go.klarlabs.de/axi/toon"
 
 out, _ := toon.Encode(map[string]any{
     "issues": []any{
