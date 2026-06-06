@@ -384,6 +384,62 @@
       "severity": "medium",
       "reason": "False positive: synthetic approver principal in quickstart example (ops@example.com), not real PII",
       "created_at": "2026-04-19T16:42:23Z"
+    },
+    {
+      "fingerprint": "fb794c44ed9a4658bfcdd98ccff9844be08ea8f19c20e98c252efaa21d543c9f",
+      "rule_id": "DATA-001",
+      "file_path": "axi_sessionrepo_test.go",
+      "severity": "medium",
+      "reason": "False positive: synthetic test principal email on .example domain, not real PII",
+      "created_at": "2026-06-06T19:16:47.475826Z"
+    },
+    {
+      "fingerprint": "f574cb5b46a0c76a199d9a35f8159862d8f15a71040d80c5609cebd5c907341b",
+      "rule_id": "IAC-018",
+      "file_path": ".github/workflows/ci.yml",
+      "severity": "low",
+      "reason": "Intentional: nox-scan step uses continue-on-error so the annotation/enforce step after it fails the build; refreshed fingerprint after module path migration",
+      "created_at": "2026-06-06T19:17:02.836429Z"
+    },
+    {
+      "fingerprint": "2e15ccc79cf3c9b97c61b4bc94594d2451ed68c3f03c27ec003de005eda19f4f",
+      "rule_id": "IAC-310",
+      "file_path": ".github/workflows/ci.yml",
+      "severity": "medium",
+      "reason": "Intentional: nox-scan step uses continue-on-error so the annotation/enforce step after it fails the build; refreshed fingerprint after module path migration",
+      "created_at": "2026-06-06T19:17:02.836429Z"
+    },
+    {
+      "fingerprint": "86ed51c1d4a2ebe6f4df2412ac38174c66957155e6c98b70d14e1906f19da828",
+      "rule_id": "IAC-308",
+      "file_path": ".github/workflows/fuzz.yml",
+      "severity": "low",
+      "reason": "Intentional: workflow_dispatch enables on-demand fuzz-smoke runs; refreshed fingerprint after module path migration",
+      "created_at": "2026-06-06T19:17:18.091879Z"
+    },
+    {
+      "fingerprint": "0acd7febb661c46fedffb45e79f3eeb9f9cbeca64d548c1bb8ef5c050f919374",
+      "rule_id": "IAC-309",
+      "file_path": ".github/workflows/ci.yml",
+      "severity": "low",
+      "reason": "Intentional: standard CI concurrency group cancels superseded runs on the same ref; not a deployment workflow",
+      "created_at": "2026-06-06T19:17:27.244392Z"
+    },
+    {
+      "fingerprint": "89e2decc496a53c723d50fd7d83dbd52ca9b329f8b9d557e21471f96008000ec",
+      "rule_id": "IAC-314",
+      "file_path": ".github/workflows/dependabot-auto-merge.yml",
+      "severity": "medium",
+      "reason": "Intentional: contents:write + pull-requests:write required for dependabot auto-merge of patch/minor updates",
+      "created_at": "2026-06-06T19:17:38.472033Z"
+    },
+    {
+      "fingerprint": "363fde11068ae5e624da1c99fbcac2b6c9f9ead09986cc6f585754123cd3765e",
+      "rule_id": "SEC-163",
+      "file_path": ".github/workflows/dependabot-auto-merge.yml",
+      "severity": "medium",
+      "reason": "False positive: pinned git SHA commit for dependabot/fetch-metadata action, not a secret",
+      "created_at": "2026-06-06T19:17:49.296547Z"
     }
   ]
 }
