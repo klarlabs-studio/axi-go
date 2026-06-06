@@ -11,10 +11,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
-	"github.com/felixgeelhaar/axi-go/inmemory"
-	"github.com/felixgeelhaar/axi-go/toon"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
+	"go.klarlabs.de/axi/inmemory"
+	"go.klarlabs.de/axi/toon"
 )
 
 // --- Sample plugin: "greeter" ---

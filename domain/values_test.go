@@ -3,7 +3,7 @@ package domain_test
 import (
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi/domain"
 )
 
 func TestNewActionName(t *testing.T) {

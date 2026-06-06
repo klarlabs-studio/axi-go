@@ -20,4 +20,4 @@ formatters:
   settings:
     goimports:
       local-prefixes:
-        - github.com/felixgeelhaar/axi-go
+        - go.klarlabs.de/axi

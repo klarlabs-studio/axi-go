@@ -26,9 +26,9 @@ import (
 	"context"
 	"time"
 
-	"github.com/felixgeelhaar/axi-go/application"
-	"github.com/felixgeelhaar/axi-go/domain"
-	"github.com/felixgeelhaar/axi-go/inmemory"
+	"go.klarlabs.de/axi/application"
+	"go.klarlabs.de/axi/domain"
+	"go.klarlabs.de/axi/inmemory"
 )
 
 // Kernel is the fluent entry point for axi-go. Build it with New(), configure

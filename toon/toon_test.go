@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go/toon"
+	"go.klarlabs.de/axi/toon"
 )
 
 func TestEncode_Scalars(t *testing.T) {

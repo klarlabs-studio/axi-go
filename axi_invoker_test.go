@@ -5,8 +5,8 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
 )
 
 // --- Helpers: sub-action executors the orchestrator calls into ---

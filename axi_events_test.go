@@ -6,8 +6,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
 )
 
 // recordingPublisher is a thread-safe DomainEventPublisher used in tests.

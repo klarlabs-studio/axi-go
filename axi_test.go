@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
 )
 
 // --- Test plugin ---

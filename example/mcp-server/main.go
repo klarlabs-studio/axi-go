@@ -24,9 +24,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
-	"github.com/felixgeelhaar/axi-go/toon"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
+	"go.klarlabs.de/axi/toon"
 )
 
 // --- JSON-RPC 2.0 envelopes ---

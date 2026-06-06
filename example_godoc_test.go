@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
 )
 
 // This file contains godoc examples that appear in 'go doc' and at

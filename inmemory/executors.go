@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi/domain"
 )
 
 // Compile-time interface satisfaction checks.

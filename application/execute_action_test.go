@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go/application"
-	"github.com/felixgeelhaar/axi-go/domain"
-	"github.com/felixgeelhaar/axi-go/inmemory"
+	"go.klarlabs.de/axi/application"
+	"go.klarlabs.de/axi/domain"
+	"go.klarlabs.de/axi/inmemory"
 )
 
 // stubActionExecutor is a simple action executor for testing.

@@ -5,7 +5,7 @@ import (
 	"testing"
 	"unicode/utf8"
 
-	"github.com/felixgeelhaar/axi-go/toon"
+	"go.klarlabs.de/axi/toon"
 )
 
 // FuzzEncode drives toon.Encode with a grab-bag of input shapes assembled

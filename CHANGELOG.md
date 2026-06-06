@@ -242,7 +242,7 @@ The library will not retroactively promote any specific adopter into a
 adopt axi-go, that will be reflected in future release notes or README
 content, but 1.0 does not gate on it.
 
-[Unreleased]: https://github.com/felixgeelhaar/axi-go/compare/v1.2.0...HEAD
-[1.2.0]: https://github.com/felixgeelhaar/axi-go/compare/v1.1.0...v1.2.0
-[1.1.0]: https://github.com/felixgeelhaar/axi-go/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/felixgeelhaar/axi-go/compare/df0fda9...v1.0.0
+[Unreleased]: https://github.com/klarlabs-studio/axi-go/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/klarlabs-studio/axi-go/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/klarlabs-studio/axi-go/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/klarlabs-studio/axi-go/compare/df0fda9...v1.0.0

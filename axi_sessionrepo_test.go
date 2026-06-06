@@ -7,8 +7,8 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go"
-	"github.com/felixgeelhaar/axi-go/domain"
+	"go.klarlabs.de/axi"
+	"go.klarlabs.de/axi/domain"
 )
 
 // snapStore is a durable SessionRepository that persists sessions as JSON

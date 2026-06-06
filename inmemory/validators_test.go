@@ -4,8 +4,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/felixgeelhaar/axi-go/domain"
-	"github.com/felixgeelhaar/axi-go/inmemory"
+	"go.klarlabs.de/axi/domain"
+	"go.klarlabs.de/axi/inmemory"
 )
 
 func TestContractValidator_Validate(t *testing.T) {
