@@ -1,196 +1,25 @@
+# Thin caller for the shared klarlabs-studio Go CI bar.
 name: CI
 
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - 'LICENSE'
+    paths-ignore: ["**.md", "docs/**", "LICENSE"]
   pull_request:
     branches: [main]
-    paths-ignore:
-      - '**.md'
-      - 'docs/**'
-      - 'LICENSE'
-
-permissions:
-  contents: read
+    paths-ignore: ["**.md", "docs/**", "LICENSE"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  fmt:
-    name: Format
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
-        with:
-          go-version: "1.26"
-      - name: Install golangci-lint v2
-        run: go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
-      - name: Check gofmt + goimports (via golangci-lint fmt)
-        run: |
-          OUTPUT=$(golangci-lint fmt --diff ./...)
-          if [ -n "$OUTPUT" ]; then
-            echo "::error::Files need formatting. Run 'make fmt' locally."
-            echo "$OUTPUT"
-            exit 1
-          fi
-
-  lint:
-    name: Lint (golangci-lint + gocritic + staticcheck)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
-        with:
-          go-version: "1.26"
-      - name: Install golangci-lint v2
-        run: go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@latest
-      - name: Run golangci-lint
-        run: golangci-lint run --timeout=3m ./...
-
-  vet:
-    name: go vet
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
-        with:
-          go-version: "1.26"
-      - run: go vet ./...
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
-        with:
-          go-version: "1.26"
-      - name: Verify go.mod is tidy
-        run: |
-          go mod tidy
-          git diff --exit-code go.mod
-      - run: go build ./...
-
-  test:
-    name: Test (race detector)
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
-        with:
-          go-version: "1.26"
-      - name: Run tests with race detector
-        run: go test ./... -race -count=1
-
-  coverage:
-    name: Coverage
-    runs-on: ubuntu-latest
-    needs: [test]
-    env:
-      # Floor set at the level below current (~63%) so small fluctuations
-      # don't block PRs, while still catching meaningful regressions.
-      COVERAGE_THRESHOLD: "60"
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
-        with:
-          go-version: "1.26"
-      - name: Run coverage
-        run: go test ./... -coverprofile=coverage.out -covermode=atomic -count=1
-      - name: Coverage summary
-        run: go tool cover -func=coverage.out | tail -1
-      - name: Enforce coverage threshold
-        run: |
-          TOTAL=$(go tool cover -func=coverage.out | awk '/^total:/ {print $NF}' | tr -d '%')
-          echo "Coverage: ${TOTAL}% (threshold: ${COVERAGE_THRESHOLD}%)"
-          awk -v t="$TOTAL" -v th="$COVERAGE_THRESHOLD" 'BEGIN { exit !(t+0 >= th+0) }' || {
-            echo "::error::Coverage ${TOTAL}% is below threshold ${COVERAGE_THRESHOLD}%"
-            exit 1
-          }
-      - name: Upload coverage artifact
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: coverage
-          path: coverage.out
-
-  security:
-    name: Security (govulncheck)
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6.4.0
-        with:
-          go-version: "1.26"
-      - name: govulncheck
-        run: |
-          go install golang.org/x/vuln/cmd/govulncheck@latest
-          govulncheck ./...
-
-  # nox scan. Enforces on every push and PR; fails the build on any
-  # unsuppressed finding. Linux/macOS parity was resolved by excluding
-  # *.md from the walker — the two builds disagreed on whether to scan
-  # markdown, and the findings there were all false positives inside
-  # README code samples. Adapters still get inline PR annotations and
-  # the findings.json artifact for human triage.
-  nox-scan:
-    name: Security (nox)
-    runs-on: ubuntu-latest
+  ci:
+    uses: klarlabs-studio/.github/.github/workflows/go-ci.yml@main
     permissions:
       contents: read
-      pull-requests: write   # nox annotate posts a PR review
-    env:
-      NOX_VERSION: "0.7.0"
-      NOX_SHA256: "d34cc1fb4c73c66ed9e9a55cfa20019120ebf6a45309ebaf86992de307eda3d9"
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: Install nox
-        run: |
-          curl -fsSL -o nox.tar.gz \
-            "https://github.com/nox-hq/nox/releases/download/v${NOX_VERSION}/nox_${NOX_VERSION}_linux_amd64.tar.gz"
-          echo "${NOX_SHA256}  nox.tar.gz" | sha256sum -c -
-          tar xzf nox.tar.gz
-          chmod +x nox
-          sudo mv nox /usr/local/bin/nox
-          nox version
-      - name: Run nox scan
-        id: scan
-        # Don't let this step fail the job directly — the annotate step
-        # needs to run first so PR reviewers see inline comments. The
-        # Enforce step below fails the build if scan exited non-zero.
-        run: nox scan .
-        continue-on-error: true
-      - name: Summarise findings
-        if: always()
-        run: |
-          if [ -f findings.json ]; then
-            UNSUPPRESSED=$(jq '[.findings[] | select(.Status != "baselined")] | length' findings.json)
-            TOTAL=$(jq '.findings | length' findings.json)
-            echo "::notice::nox: ${UNSUPPRESSED} unsuppressed of ${TOTAL} total findings"
-          fi
-      - name: Upload findings.json
-        if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
-        with:
-          name: nox-findings
-          path: findings.json
-          if-no-files-found: ignore
-          retention-days: 7
-      - name: Annotate PR with findings
-        if: steps.scan.outcome == 'failure' && github.event_name == 'pull_request'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GITHUB_TOKEN: ${{ github.token }}
-        run: nox annotate
-      - name: Enforce security gate
-        if: steps.scan.outcome == 'failure'
-        run: |
-          echo "::error::nox security scan found unsuppressed issues. Triage in .nox/baseline.json (with a reason) or fix the underlying problem."
-          exit 1
+      security-events: write
+      pull-requests: write
+    secrets: inherit
+    with:
+      coverage: false
