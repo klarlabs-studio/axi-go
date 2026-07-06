@@ -2,444 +2,156 @@
   "schema_version": "1.0.0",
   "entries": [
     {
-      "fingerprint": "c45e76a90b0dcd7b4065c2061d550b816e8a08a4794eb37a15b12f95c1979df6",
-      "rule_id": "AI-028",
-      "file_path": "toon/fuzz_test.go",
-      "severity": "medium",
-      "reason": "False positive: Go native testing.F fuzz harness, not an LLM",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "79946ad5e773f68a2ea9f1c71ac87a3f29887ecee6dad76432481983c7e0c4c2",
-      "rule_id": "DATA-001",
-      "file_path": "example/mcp-server/main.go",
-      "severity": "medium",
-      "reason": "False positive: synthetic test/example email address, not real PII",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "9e8b7c2c3de4ae2898c95f1b68091041ac0a1adc35f4d917b41543d3f6361c72",
-      "rule_id": "DATA-001",
-      "file_path": "example/mcp-server/main_test.go",
-      "severity": "medium",
-      "reason": "False positive: synthetic test/example email address, not real PII",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "6caf5cf409f3020fdfd73f8ffc3d1b68a7b108a59e67da62c9d0842ab0a546a5",
-      "rule_id": "DATA-001",
-      "file_path": "jsonstore/store_test.go",
-      "severity": "medium",
-      "reason": "False positive: synthetic test/example email address, not real PII",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "271220ae56ad5ddeaef36019549312877a72dd5372cefc05fb0b9b67a62a49f6",
-      "rule_id": "DATA-001",
-      "file_path": "jsonstore/store_test.go",
-      "severity": "medium",
-      "reason": "False positive: synthetic test/example email address, not real PII",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "454b4f77b57bc5d25c796715bc5af5fa808b3b7bfa755c9a69476fcb183116d5",
-      "rule_id": "IAC-018",
-      "file_path": ".github/workflows/ci.yml",
-      "severity": "low",
-      "reason": "Intentional: nox-scan step uses continue-on-error so the annotate step runs before the enforce gate fails the build",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "9b7329decb7d2dd6ee1a1c36e0b766d3f2ed1a03b8dac3a919cb2e1ba28a49cc",
-      "rule_id": "IAC-158",
-      "file_path": ".github/workflows/codeql.yml",
-      "severity": "medium",
-      "reason": "False positive: CodeQL is correctly configured for Go, the only language in this pure-Go repo",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "4cb249c17209e10cad38a23b6ac4d81b0d4f88c658d06d73ad212c81ff4fcffe",
-      "rule_id": "IAC-158",
-      "file_path": ".github/workflows/codeql.yml",
-      "severity": "medium",
-      "reason": "False positive: CodeQL is correctly configured for Go, the only language in this pure-Go repo",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "cec9e81a4c0ce0a7de5e8cd1ae83d699c772f7628ea2e3d530438f9dc943a8b8",
-      "rule_id": "IAC-306",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "medium",
-      "reason": "Intentional: id-token:write required for cosign keyless signing via GitHub OIDC",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "51f13a21a0ecd40d8fa664a964fb4e935a58c8294181b1e620368cdcba80dc16",
-      "rule_id": "IAC-308",
-      "file_path": ".github/workflows/fuzz.yml",
-      "severity": "low",
-      "reason": "Intentional: workflow_dispatch enables on-demand fuzz-smoke runs alongside the nightly schedule; no user inputs are consumed",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "ec227a1e52b112a7df3b6d100299de6b18a1d1bc00cae549bcd4a5a6acf237ed",
-      "rule_id": "IAC-310",
-      "file_path": ".github/workflows/ci.yml",
-      "severity": "medium",
-      "reason": "Intentional: nox-scan step uses continue-on-error so the annotate step runs before the enforce gate fails the build",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "e69e961bc3ef0f4756a61f46ed4f02d64346fa08bf320f479d2a0ba62cda8260",
-      "rule_id": "IAC-314",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "medium",
-      "reason": "Intentional: contents:write required to publish the GitHub Release body and attach SBOM artifacts",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "f0ed4d76c8deb05409340ed1653f3d258933aaa9608ab79c40c56387e3ce0d52",
-      "rule_id": "IAC-351",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "critical",
-      "reason": "False positive: id-token on the permissions: block is a GitHub permission scope name, not a hardcoded secret",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "9affc0566158096f17e00d3c84098a8b23950551e6bf39cadabf5212e7b3eaaa",
-      "rule_id": "SEC-147",
-      "file_path": "jsonstore/store_test.go",
-      "severity": "high",
-      "reason": "False positive: matched a test function name, not a Resend API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "f049056965fc640ef960aca3d59f1b7ae79e411ce7c2bc75a476ef870ec59d82",
-      "rule_id": "SEC-163",
-      "file_path": "domain/pipeline_test.go",
-      "severity": "medium",
-      "reason": "False positive: matched inside a test/example format string, not a cryptographic key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "3c1a639999cb0b18b7d0c96542f40dae01157f71a77bc47bc6db609873aafa6a",
-      "rule_id": "SEC-163",
-      "file_path": "example/main.go",
-      "severity": "medium",
-      "reason": "False positive: matched inside a test/example format string, not a cryptographic key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "7da090b4ed36ee54129d7ddaea8cdb69427dc8f38fdd42abc5456bef832d8042",
-      "rule_id": "SEC-163",
-      "file_path": "jsonstore/store_test.go",
-      "severity": "medium",
-      "reason": "False positive: matched inside a test/example format string, not a cryptographic key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "3fa281bc62e84a3eb28206df420a0ea74b50791c4ae8b4ae2071e0b0b57ba966",
-      "rule_id": "SEC-163",
-      "file_path": "jsonstore/store_test.go",
-      "severity": "medium",
-      "reason": "False positive: matched inside a test/example format string, not a cryptographic key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "af6878ca694526af01cd143fa9b5d366c96cb38a81a9ceb635a7ce1e15b01c5d",
-      "rule_id": "SEC-574",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "0511769f6f0f4674b6067807fd289539c1ca558b4416c3cd7b7a47500986a48a",
-      "rule_id": "SEC-574",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "8179589728b7ede41e814ad9b127d88bb49be35ae4d0573a1a419783991383d7",
-      "rule_id": "SEC-574",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "31a0c10b0bf9d4b5fd0ac3f79d6f10e0ce16d931d2df2b6f3c4b33898b2dbdf2",
-      "rule_id": "SEC-574",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "d2cc6debeea15b826e39c251ec3f738cd4ccb93ce55327c5e98af52002e090d6",
-      "rule_id": "SEC-574",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "73b4959f4c7d3a4e3d6984b633589aeb9da5fe2e960283052c7002a54cd849ad",
-      "rule_id": "SEC-574",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "87903938ee530ce389ce3ac07896d2cd8f6688edac691c0e4ab47dfe97770eee",
-      "rule_id": "SEC-574",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "08f3f8d45e32e4a0429ef0f4eea1b1e65bec9432a858c9de3f6002793803e04c",
-      "rule_id": "SEC-574",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "bbabf401da1284421c09c1eb41a12bff5cf85199b3ec4ebd1bf4283c21047a3f",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/fuzz.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "e655da794d80104b83705246def00c1e0f4ce940d171036cc84aa3f12d5189bf",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/fuzz.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "de1e86d7176d41a070bd5ed39e45d1e0c7c3adc9c3b447ea9ef5bb76d762166e",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/fuzz.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "f6c9da727f459ebc0a015f50d1bf34468711d7086bca9815f26fa934c8c96477",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "e60a7c16923c49d36b75366c3cb9f09c992390b7c8679e93ec677fb20758c946",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "a51fc4a48148a4f3de06c9d3f8d85674df9928d40a88b554a9952835b2a94370",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "9e3145dbfa29a4c5b6d3bb6e79b88d111f5f0a8544df0ecc3121c75cdd84e6e1",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "6eb32b95763c08b25bf0d4c77344bb26fa87de5fd216fb15eb62bf4e3a3a9c82",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "8ea170c18a25061d07b32727b34ce202d83596c4d3619d96fc5454c3a96048a8",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "709819798f6e953d390c7a990cf28550bdc46741c3f9f3be84c4fa88b6e3a279",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "85b884d46b959fcc37bcb69d0007431ef8868a0492156256cefa0b01012fa6de",
-      "rule_id": "SEC-629",
-      "file_path": ".github/workflows/release.yml",
-      "severity": "high",
-      "reason": "False positive: matched pinned git SHA commit for a GitHub Action ref, not an API key",
-      "created_at": "2026-04-18T12:20:11Z"
-    },
-    {
-      "fingerprint": "8c356b631fe4e60bbb3bdb7073d8dac2c8f307187e19f6c425b96a9dae5352fc",
-      "rule_id": "IAC-018",
-      "file_path": ".github/workflows/ci.yml",
-      "severity": "low",
-      "reason": "Intentional: nox-scan step uses continue-on-error so the annotate step runs before the enforce gate fails the build (line shifted after job restructure)",
-      "created_at": "2026-04-18T16:52:02Z"
-    },
-    {
-      "fingerprint": "3c27c37978cee4aef6417881e7c7cc71d02534a2f401aa6c19dd102efae5f618",
-      "rule_id": "IAC-310",
-      "file_path": ".github/workflows/ci.yml",
-      "severity": "medium",
-      "reason": "Intentional: nox-scan step uses continue-on-error so the annotate step runs before the enforce gate fails the build (line shifted after job restructure)",
-      "created_at": "2026-04-18T16:52:02Z"
-    },
-    {
-      "fingerprint": "fdcecf9373179c4efa8bcdece52bb5dcb1285ceaae5199b2561d839e7ab6bff4",
-      "rule_id": "SEC-680",
-      "file_path": "axi.go",
-      "severity": "high",
-      "reason": "False positive: SEC-680 regex (Prometheus API Key) matches substring of RegisterPluginContributionUseCase identifier, not a credential",
-      "created_at": "2026-04-18T16:52:02Z"
-    },
-    {
-      "fingerprint": "a7c3c43b2727d1711d86a49e1bdd4ff33ba17d5da0ba8eab6cb1a5a326bc63fe",
-      "rule_id": "SEC-680",
-      "file_path": "axi.go",
-      "severity": "high",
-      "reason": "False positive: SEC-680 regex (Prometheus API Key) matches substring of RegisterPluginContributionUseCase identifier, not a credential",
-      "created_at": "2026-04-18T16:52:02Z"
-    },
-    {
-      "fingerprint": "7915a885d9564dfbdd5c99fb398a08dd4a633f1318f27e880b4ad1762c90ee32",
-      "rule_id": "SEC-680",
-      "file_path": "axi.go",
-      "severity": "high",
-      "reason": "False positive: SEC-680 regex (Prometheus API Key) matches substring of RegisterPluginContributionUseCase identifier, not a credential",
-      "created_at": "2026-04-18T16:52:02Z"
-    },
-    {
-      "fingerprint": "d45811c15c2bbec7bfd5f6f1808e5f0c9074e0466e202d019fb89a95392e415a",
-      "rule_id": "IAC-018",
-      "file_path": ".github/workflows/ci.yml",
-      "severity": "low",
-      "reason": "Intentional: nox-scan step uses continue-on-error so annotate runs before the enforce gate fails the build",
-      "created_at": "2026-04-19T10:03:59Z"
-    },
-    {
-      "fingerprint": "b5365c6c148224e7e4434dbb7e66f4b28c9028c1a88ce5bbb9f194ba23fa8413",
-      "rule_id": "IAC-310",
-      "file_path": ".github/workflows/ci.yml",
-      "severity": "medium",
-      "reason": "Intentional: nox-scan step uses continue-on-error so annotate runs before the enforce gate fails the build",
-      "created_at": "2026-04-19T10:03:59Z"
-    },
-    {
-      "fingerprint": "417815997797e2436d5dff733c409491ed097403f3cd7c62f46ff9a1d0279cb6",
-      "rule_id": "SEC-163",
-      "file_path": "example/observability/main.go",
-      "severity": "medium",
-      "reason": "False positive: match is inside a format string (tokens exhausted message), not a cryptographic key",
-      "created_at": "2026-04-19T15:31:50Z"
-    },
-    {
-      "fingerprint": "8852b18562418317e693791ecd8b066058aed8a31aef10c921b8dd2e729a2793",
-      "rule_id": "SEC-163",
-      "file_path": "example/observability/main.go",
-      "severity": "medium",
-      "reason": "False positive: match is inside a section header format string, not a cryptographic key",
-      "created_at": "2026-04-19T15:31:50Z"
-    },
-    {
-      "fingerprint": "1a22dcb03abaa3a5406ad3691695a006b5529eee20b44f8c9187010457bf482f",
-      "rule_id": "DATA-001",
-      "file_path": "example/quickstart/main.go",
-      "severity": "medium",
-      "reason": "False positive: synthetic recipient email in quickstart example (alice@example.com), not real PII",
-      "created_at": "2026-04-19T16:42:23Z"
-    },
-    {
-      "fingerprint": "4776abe15e77ec9c5909202e908739f5bfdeb22ea6670748e92b23a1c5f49b44",
-      "rule_id": "DATA-001",
-      "file_path": "example/quickstart/main.go",
-      "severity": "medium",
-      "reason": "False positive: synthetic approver principal in quickstart example (ops@example.com), not real PII",
-      "created_at": "2026-04-19T16:42:23Z"
-    },
-    {
-      "fingerprint": "fb794c44ed9a4658bfcdd98ccff9844be08ea8f19c20e98c252efaa21d543c9f",
+      "fingerprint": "54727488d46b5bec5dfd0d9e806e51cc65878f3913dd0b0e5cbcbcb16f3daef9",
       "rule_id": "DATA-001",
       "file_path": "axi_sessionrepo_test.go",
       "severity": "medium",
-      "reason": "False positive: synthetic test principal email on .example domain, not real PII",
-      "created_at": "2026-06-06T19:16:47.475826Z"
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: synthetic test principal email on .example domain, not real PII"
     },
     {
-      "fingerprint": "f574cb5b46a0c76a199d9a35f8159862d8f15a71040d80c5609cebd5c907341b",
+      "fingerprint": "140c638ccf55638ca8493545d3226535aeecfa037a412bd95e9c8b29d2981e2c",
+      "rule_id": "DATA-001",
+      "file_path": "example/mcp-server/main.go",
+      "severity": "medium",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: synthetic test/example email address, not real PII"
+    },
+    {
+      "fingerprint": "88cbc372377dc6f1e54071556b430fa240e64a425cd0744116367570d56fac06",
+      "rule_id": "DATA-001",
+      "file_path": "example/mcp-server/main_test.go",
+      "severity": "medium",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: synthetic test/example email address, not real PII"
+    },
+    {
+      "fingerprint": "d4ddf6ce665c38e01f66e0e7d7187fbc4e06e401b05a9dd1e65c199590adf22d",
+      "rule_id": "DATA-001",
+      "file_path": "example/quickstart/main.go",
+      "severity": "medium",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: synthetic approver principal in quickstart example (ops@example.com), not real PII"
+    },
+    {
+      "fingerprint": "3dbd1c877dd592d4fb197393f0677c1d24deaec2b2fcb9c41cd0c13b7537b509",
+      "rule_id": "DATA-001",
+      "file_path": "example/quickstart/main.go",
+      "severity": "medium",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: synthetic approver principal in quickstart example (ops@example.com), not real PII"
+    },
+    {
+      "fingerprint": "7814e0f4b487c22be31a657ff499a2d7af4d73c0aae6d3340a223d51620b057b",
+      "rule_id": "DATA-001",
+      "file_path": "jsonstore/store_test.go",
+      "severity": "medium",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: synthetic test/example email address, not real PII"
+    },
+    {
+      "fingerprint": "bc549bd83bda47b0f1e5c6cb3fc9d67db65f4fbd72cdd30697bdbc6657d167bb",
       "rule_id": "IAC-018",
       "file_path": ".github/workflows/ci.yml",
       "severity": "low",
-      "reason": "Intentional: nox-scan step uses continue-on-error so the annotation/enforce step after it fails the build; refreshed fingerprint after module path migration",
-      "created_at": "2026-06-06T19:17:02.836429Z"
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "Intentional: nox-scan step uses continue-on-error so the annotation/enforce step after it fails the build; refreshed fingerprint after module path migration"
     },
     {
-      "fingerprint": "2e15ccc79cf3c9b97c61b4bc94594d2451ed68c3f03c27ec003de005eda19f4f",
-      "rule_id": "IAC-310",
-      "file_path": ".github/workflows/ci.yml",
+      "fingerprint": "d385ace82883f091ddd28f6f1843f80bfde5986db9ad1bb7485d7b8345d4f5f1",
+      "rule_id": "IAC-158",
+      "file_path": ".github/workflows/codeql.yml",
       "severity": "medium",
-      "reason": "Intentional: nox-scan step uses continue-on-error so the annotation/enforce step after it fails the build; refreshed fingerprint after module path migration",
-      "created_at": "2026-06-06T19:17:02.836429Z"
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: CodeQL is correctly configured for Go, the only language in this pure-Go repo"
     },
     {
-      "fingerprint": "86ed51c1d4a2ebe6f4df2412ac38174c66957155e6c98b70d14e1906f19da828",
+      "fingerprint": "608d3b10f08ffa8d5f274f1fe467f97bbcc9e02151459737387934fd0b87b2b5",
+      "rule_id": "IAC-158",
+      "file_path": ".github/workflows/codeql.yml",
+      "severity": "medium",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: CodeQL is correctly configured for Go, the only language in this pure-Go repo"
+    },
+    {
+      "fingerprint": "be245a4499fe01a73e9664baf0ed8c855e243ef4da2b278bd541e113a9dfae2e",
+      "rule_id": "IAC-306",
+      "file_path": ".github/workflows/release.yml",
+      "severity": "medium",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "Intentional: id-token:write required for cosign keyless signing via GitHub OIDC"
+    },
+    {
+      "fingerprint": "6ca503fe69b3858f8db7d5b7e2b9cc454231b626d75370736b283b531411f29d",
       "rule_id": "IAC-308",
       "file_path": ".github/workflows/fuzz.yml",
       "severity": "low",
-      "reason": "Intentional: workflow_dispatch enables on-demand fuzz-smoke runs; refreshed fingerprint after module path migration",
-      "created_at": "2026-06-06T19:17:18.091879Z"
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "Intentional: workflow_dispatch enables on-demand fuzz-smoke runs; refreshed fingerprint after module path migration"
     },
     {
-      "fingerprint": "0acd7febb661c46fedffb45e79f3eeb9f9cbeca64d548c1bb8ef5c050f919374",
+      "fingerprint": "8c9a05e7d0c8a05b61d4c18aefce8e2dc91a85c3456246a1c92bea30dbb416d8",
       "rule_id": "IAC-309",
       "file_path": ".github/workflows/ci.yml",
       "severity": "low",
-      "reason": "Intentional: standard CI concurrency group cancels superseded runs on the same ref; not a deployment workflow",
-      "created_at": "2026-06-06T19:17:27.244392Z"
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "Intentional: standard CI concurrency group cancels superseded runs on the same ref; not a deployment workflow"
     },
     {
-      "fingerprint": "89e2decc496a53c723d50fd7d83dbd52ca9b329f8b9d557e21471f96008000ec",
+      "fingerprint": "faae53eee5aab123b480b37ae6df3775272ea7eb6546c6b64ee45cf14a19b173",
+      "rule_id": "IAC-310",
+      "file_path": ".github/workflows/ci.yml",
+      "severity": "medium",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "Intentional: nox-scan step uses continue-on-error so the annotation/enforce step after it fails the build; refreshed fingerprint after module path migration"
+    },
+    {
+      "fingerprint": "be94a773ee391396458b0fc3b49feb2a94bc372d2c74a25b8ebce60fcb9f4106",
       "rule_id": "IAC-314",
       "file_path": ".github/workflows/dependabot-auto-merge.yml",
       "severity": "medium",
-      "reason": "Intentional: contents:write + pull-requests:write required for dependabot auto-merge of patch/minor updates",
-      "created_at": "2026-06-06T19:17:38.472033Z"
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "Intentional: contents:write + pull-requests:write required for dependabot auto-merge of patch/minor updates"
     },
     {
-      "fingerprint": "363fde11068ae5e624da1c99fbcac2b6c9f9ead09986cc6f585754123cd3765e",
-      "rule_id": "SEC-163",
-      "file_path": ".github/workflows/dependabot-auto-merge.yml",
+      "fingerprint": "e37e2faa5f7d812400d1323a31d22e93b710b881ea06f3b656d724454d47a8f4",
+      "rule_id": "IAC-314",
+      "file_path": ".github/workflows/release.yml",
       "severity": "medium",
-      "reason": "False positive: pinned git SHA commit for dependabot/fetch-metadata action, not a secret",
-      "created_at": "2026-06-06T19:17:49.296547Z"
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "Intentional: contents:write required to publish the GitHub Release body and attach SBOM artifacts"
+    },
+    {
+      "fingerprint": "4da2ab2e8a1568ed77c34c43d4300b9832edda20314f01fae4569a227612fbb8",
+      "rule_id": "IAC-351",
+      "file_path": ".github/workflows/release.yml",
+      "severity": "critical",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: id-token on the permissions: block is a GitHub permission scope name, not a hardcoded secret"
+    },
+    {
+      "fingerprint": "17545611f3553a7ac0b937474633e65586302180379f36fc142853f242bc1de4",
+      "rule_id": "SEC-147",
+      "file_path": "jsonstore/store_test.go",
+      "severity": "high",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: matched a test function name, not a Resend API key"
+    },
+    {
+      "fingerprint": "5a5c4d67c02c40424bd40ceac1c91c755785ee481e2769aab5d14c92207ed76e",
+      "rule_id": "SEC-680",
+      "file_path": "axi.go",
+      "severity": "high",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: SEC-680 regex (Prometheus API Key) matches substring of RegisterPluginContributionUseCase identifier, not a credential"
+    },
+    {
+      "fingerprint": "18f740da54d80f00f261e642676d3a002c816d8de3da332f2359956c3d849d72",
+      "rule_id": "SEC-680",
+      "file_path": "axi.go",
+      "severity": "high",
+      "created_at": "2026-07-06T09:05:49.528162Z",
+      "reason": "False positive: SEC-680 regex (Prometheus API Key) matches substring of RegisterPluginContributionUseCase identifier, not a credential"
     }
   ]
 }

@@ -147,8 +147,8 @@ jobs:
       contents: read
       pull-requests: write   # nox annotate posts a PR review
     env:
-      NOX_VERSION: "0.7.0"
-      NOX_SHA256: "d34cc1fb4c73c66ed9e9a55cfa20019120ebf6a45309ebaf86992de307eda3d9"
+      NOX_VERSION: "1.7.0"
+      NOX_SHA256: "d4ddb89b07c68e767453518ba7358a5c9786ca93f0995143277426de208d4645"
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
       - name: Install nox
