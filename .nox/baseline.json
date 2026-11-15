@@ -88,6 +88,54 @@
       "severity": "low",
       "reason": "Intentional: workflow_dispatch enables on-demand fuzz-smoke runs; refreshed fingerprint after module path migration",
       "created_at": "2026-06-06T19:17:18.091879Z"
+    },
+    {
+      "fingerprint": "97ad188e0785ddce4eefe6d2d1e10de2c1c850dcab14aa15399d987f5cb53c29",
+      "rule_id": "IAC-153",
+      "file_path": ".github/workflows/release.yml",
+      "severity": "medium",
+      "reason": "Reviewed: heuristic workflow-hygiene rule, not a vulnerability. workflow_dispatch/cancel-in-progress/contents:write/artifact upload are intentional (manual fuzz and remediation runs, superseded CI runs, remediation PR creation, SBOM artifact handoff to the signed release job); permissions are least-privilege per job.",
+      "created_at": "2026-11-15T11:13:09.277405Z"
+    },
+    {
+      "fingerprint": "2caefce01f0e8fcc148bc3feac088c167ddddd5d10f073e5b5dbe155cb0ac29c",
+      "rule_id": "IAC-155",
+      "file_path": ".github/workflows/fuzz.yml",
+      "severity": "medium",
+      "reason": "Reviewed: heuristic workflow-hygiene rule, not a vulnerability. workflow_dispatch/cancel-in-progress/contents:write/artifact upload are intentional (manual fuzz and remediation runs, superseded CI runs, remediation PR creation, SBOM artifact handoff to the signed release job); permissions are least-privilege per job.",
+      "created_at": "2026-11-15T11:13:09.277405Z"
+    },
+    {
+      "fingerprint": "efffd45e45bdf218052ebd23a0a2fc2295219290f6341d868fed455c871b6993",
+      "rule_id": "IAC-155",
+      "file_path": ".github/workflows/nox-remediate.yml",
+      "severity": "medium",
+      "reason": "Reviewed: heuristic workflow-hygiene rule, not a vulnerability. workflow_dispatch/cancel-in-progress/contents:write/artifact upload are intentional (manual fuzz and remediation runs, superseded CI runs, remediation PR creation, SBOM artifact handoff to the signed release job); permissions are least-privilege per job.",
+      "created_at": "2026-11-15T11:13:09.277405Z"
+    },
+    {
+      "fingerprint": "52922952e40b8c5ebd4fef0969dd782d57266e9ecccc4e9bddc9be74f0f6daa2",
+      "rule_id": "IAC-308",
+      "file_path": ".github/workflows/nox-remediate.yml",
+      "severity": "low",
+      "reason": "Reviewed: heuristic workflow-hygiene rule, not a vulnerability. workflow_dispatch/cancel-in-progress/contents:write/artifact upload are intentional (manual fuzz and remediation runs, superseded CI runs, remediation PR creation, SBOM artifact handoff to the signed release job); permissions are least-privilege per job.",
+      "created_at": "2026-11-15T11:13:09.277405Z"
+    },
+    {
+      "fingerprint": "8c9a05e7d0c8a05b61d4c18aefce8e2dc91a85c3456246a1c92bea30dbb416d8",
+      "rule_id": "IAC-309",
+      "file_path": ".github/workflows/ci.yml",
+      "severity": "low",
+      "reason": "Reviewed: heuristic workflow-hygiene rule, not a vulnerability. workflow_dispatch/cancel-in-progress/contents:write/artifact upload are intentional (manual fuzz and remediation runs, superseded CI runs, remediation PR creation, SBOM artifact handoff to the signed release job); permissions are least-privilege per job.",
+      "created_at": "2026-11-15T11:13:09.277405Z"
+    },
+    {
+      "fingerprint": "8378df7a1d4adb5806616a668bc89e456b48fe9b7212ca5799b5b8eddbe0ae9c",
+      "rule_id": "IAC-314",
+      "file_path": ".github/workflows/nox-remediate.yml",
+      "severity": "medium",
+      "reason": "Reviewed: heuristic workflow-hygiene rule, not a vulnerability. workflow_dispatch/cancel-in-progress/contents:write/artifact upload are intentional (manual fuzz and remediation runs, superseded CI runs, remediation PR creation, SBOM artifact handoff to the signed release job); permissions are least-privilege per job.",
+      "created_at": "2026-11-15T11:13:09.277405Z"
     }
   ]
 }

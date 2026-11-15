@@ -4,6 +4,7 @@
 
 [![CI](https://github.com/klarlabs-studio/axi-go/actions/workflows/ci.yml/badge.svg)](https://github.com/klarlabs-studio/axi-go/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/go.klarlabs.de/axi)](https://goreportcard.com/report/go.klarlabs.de/axi)
+[![nox security grade](.github/nox-badge.svg)](.github/workflows/ci.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Go Reference](https://pkg.go.dev/badge/go.klarlabs.de/axi.svg)](https://pkg.go.dev/go.klarlabs.de/axi)
 
